@@ -1,0 +1,47 @@
+import random
+
+# Aqui eu começo com as variaveis do codigo abaixo tem as palavras da forca, tem o random e a utilidades das
+
+
+Animais = ["iguana", "gorila", "aranha", "raposa", "texugo", "falcao", "cavalo", "abelha", "jacare", "jaguar"]
+
+Palavra = random.choice(Animais)
+
+Partes_Do_Corpo = 7
+
+Letras_Select = []
+
+Animal_Da_Forca = ["_"] * len(Palavra)
+
+# apresentaçao do jogo
+print("BEM VINDO AO JOGO DA FORCA DOS ANIMAIS")
+print("VOCE TEM 7 PARTES DO CORPO PARA TENTAR ACHAR A PALAVRA ANTES DE SER ENFORCADO")
+print(f"{Animal_Da_Forca} jigsaw: QUE COMEÇEM OS JOGOS ")
+
+# o laço que pedi as letras e mostra se foi certa ou errada e conclui a forca
+while Partes_Do_Corpo > 0 and ''.join(Animal_Da_Forca) != Palavra:
+    letra = input("\nDigite Uma Letra: ")
+    while letra in Letras_Select:
+        print("Esta letra ja foi escolhida, diga outra letra")
+        letra = input("\nDigite Uma Letra: ")
+    Letras_Select.append(letra)
+
+    if letra in Palavra:  # aqui verifico ce ele acertou ou errou a letra e add ela na palavra escolhida caso acerte
+        print(f"A letra:{letra} tem na palavra da forca\n")
+        for i in range(len(Palavra)):
+            if letra == Palavra[i]:
+                Animal_Da_Forca[i] = letra
+    else:  # ja o else apenas mostra que a letra nao contem na palavra da forca e tira uma parte do corpo
+        print(f"A letra:{letra} nao tem na palavra da forca\n")
+        Partes_Do_Corpo -= 1
+
+    print(f"Voce ainda tem {Partes_Do_Corpo} Partes do corpo")
+    print(Animal_Da_Forca)
+    print(f"As Letras Que Ja Foram São:")
+    for L2 in Letras_Select:
+        print(L2, end=" ")
+
+if Partes_Do_Corpo == 0:
+    print("\n\nVocê Perdeu E Foi Enforcado")
+else:
+    print(f"\nVoce Ganhou O Jogo Da Forca!!! A Palavra Era: {Palavra}")
