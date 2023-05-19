@@ -1,0 +1,44 @@
+# sintaxe
+class Pessoa:
+    """def _init_(self):"""
+
+    def __init__(self, nome, peso, idade, comendo=False,falando = False):
+        self.nome = nome
+        self.peso = peso
+        self.idade = idade
+        self.comendo = comendo
+        self.falando = falando
+
+    def comer(self, comida):
+        self.comida = comida
+        if self.comendo == True:
+            print(f"{self.nome} que tem o peso de {self.peso} e foi comer {self.comida}")
+        else:
+            print(f"{self.nome} que tem o peso de {self.peso} e esta comendo {self.comida}")
+            self.comendo = True
+
+    def PararComer(self):
+        if self.comendo == True:
+            self.comendo = False
+            print(f"{self.nome} para de comer")
+        else:
+            print("Nâo esta comendo")
+    def Falar(self):
+        if self.falando == False:
+            if self.comendo == True:
+                print("Nao Fala porque esta comendo")
+            else:
+                print("Começou a falar")
+                self.falando = True
+        else:
+            print("Esta falando")
+
+p1 = Pessoa("João", 80, 23)
+p2 = Pessoa("Maria", 54, 19, True)
+# print(vars(p1))
+# print(vars(p2))
+# p1.PararComer()
+# p1.comer("banana")
+# p2.comer("Maça")
+
+p1.Falar()
