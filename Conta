@@ -42,7 +42,7 @@ class ContaBancaria:
 
 
 # Exemplo de uso da classe
-conta = ContaBancaria("12345", 0.0, False, "João da Silva", "Corrente")
+conta = ContaBancaria("55555", 0.0, False, "Silva", "Corrente")
 
 conta.depositar(100.0)
 conta.verificar_saldo()
