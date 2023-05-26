@@ -1,0 +1,1 @@
+from datetime import datetime dias segunda " , " Terça " , " Quarta " , " quinta " , " Sexta " , " sabado " , " domingo " ] x = datetime.now ( ) print ( x.day ) print ( x.month  ) print ( x.year ) print ( x.weekday ( ) ) print ( Hoje é dia ( x.day ) de ( x.month ) de ( x.year ) e hoje e ( dias [ x weekday
